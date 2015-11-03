@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#ajaxbutton").bind("click",function(){
+                $.ajax({
+                    url:"../../ajaxServlet",
+                    type:"POST",
+                    //发送数据的第一种格式
+                    // data:"username=wangwu&age=23",
+
+                    //第二种格式
+                    data:{
+                        username:"雷",
+                        age:23
+
+                    },
+                    timeout:5000,
+                    success:function(data){
+                        alert(data)
+                    },
+                    error:function(){
+
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <input type="button" id="ajaxbutton" value="ajax提交">
+</body>
+</html>

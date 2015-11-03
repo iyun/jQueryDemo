@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ajax.html</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#postbutton").bind("click",function(){
+                $.post("../../postServlet",{
+                    username:"雷的例子"
+                },function(data){
+                    alert(data);
+                    //eval() 将一个字符串转换成javascript 的对象,json 的字符串就是一个javascirpt 的 对象..
+                    var jsonobject=eval("("+data+")")
+                    alert(jsonobject);
+                    alert(jsonobject.username);
+                    var array=jsonobject.contact;
+                    alert(array.length);
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+<input type="button" id="postbutton" value="post提交">
+</body>
+</html>
