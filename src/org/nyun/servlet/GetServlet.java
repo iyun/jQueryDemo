@@ -30,7 +30,7 @@ public class GetServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String username=request.getParameter("username");
         System.out.println(username);
-        String  xmldata="<xml><province><city>天津</city></province></xml>";
+        String  xmldata="<xml><province><city>邯郸</city></province></xml>";
         out.println(xmldata);
 
 

@@ -6,12 +6,12 @@
     <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
     <script type="text/javascript">
         $(function(){
-            $("#ajaxbutton").bind("click",function(){
-                $get("../../GetServlet",{
+            $("#getbutton").bind("click",function(){
+                $.get("../../getServlet",{
                     username:"雷"
                 },function(data){
                     //使用jQuery去解析xml格式的数据...
-                  alert( $(data).find("city").text());
+                    alert($(data).find("city").text());
                 })
             })
         })
@@ -19,6 +19,6 @@
     </script>
 </head>
 <body>
-<input type="button" id="getbutton" value="get提交">
+    <input type="button" id="getbutton" value="get提交">
 </body>
 </html>
