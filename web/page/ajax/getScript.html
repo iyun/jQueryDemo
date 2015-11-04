@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>getScirpt.html</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+
+
+    <script type="text/javascript">
+        $(function(){
+            $("#scriptbutton").bind("click",function(){
+                $.getScript("../../js/getScript.js");
+
+            })
+        })
+    </script>
+
+
+</head>
+
+<style type="text/css">
+    #message{
+        height:300px;
+        width:300px;
+        background:#abcdef;
+        border:3px solid red;
+        display:none;
+    }
+
+</style>
+
+<body>
+<input type="button" id="scriptbutton" value="getscript提交">
+<div id="message"></div>
+</body>
+</html>

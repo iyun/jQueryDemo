@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getJSON方法</title>
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#getjsonbutton").bind("click",function(){
+                $.getJSON("../../page/json/Demo.json",function(data){
+                    //返回对象即字符串自动转换为对象
+                    //jquery对json的格式要求严格
+                    alert(data);
+                    var array = data.rows;
+                    alert(array[0].username);
+                    alert(array[1].age);
+                    alert(array[2].sex);
+
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+<input type="button" id="getjsonbutton" value="get提交">
+</body>
+</html>

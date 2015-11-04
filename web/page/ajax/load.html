@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>ajax.html</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#loadbutton").bind("click",function(){
+                /**
+                 * 1.load提交方法是什么？get？post？
+                 *  全局方法：$.get() $.post $.ajax
+                 *  局部方法：load()借助表达式如  $(.message).load()
+                 *  load()在无参数传递时默认使用post提交，如果有参数传输默认用post。
+                 */
+                $(".message").load("../../loadServlet",{username:'雷'});
+
+                /**
+                 * load一般用来加载一个第三方的界面
+                 * $(".message").load("post.html");
+                 *
+                 */
+                $(".message").load("post.html");
+            })
+        })
+    </script>
+</head>
+
+<body>
+<input type="button" id="loadbutton" value="load提交">
+<div class="message"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单提交jQuery的ajax异步实现</title>
+    <script type="text/javascript" src="../../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+        $(function(){
+                $("#ajaxbutton").click(function(){
+                    //把表单里面的选项序列化字符串
+                   // var data = $("#form1").serialize();//表单序列化
+
+                    var data = $("#form1").serializeArray()//序列化成三个数字对象...
+                    //alert只能打印字符串，数字，对象并不能打印详细信息
+                    console.info(data);//详细调试，打印信息
+
+                    //获得值
+                    for(var i=0;i<data.length;i++){
+                        alert(data[i].name);
+                        alert(data[i].value);
+
+                    }
+
+                    var option= {
+                        url: "../../formServlet",
+                        data:data,
+                        success: function () {
+
+                        },
+                        type: "POST"
+                    }
+                    $.ajax(option)
+                })
+        })
+    </script>
+</head>
+<body>
+    <form id="form1">
+        用户名：<input type="text" id="username" name="username"><br><br>
+        密码：<input type="password" id="password" name="password"><br><br>
+        邮箱：<input type="text" id="email" name="email"><br><br>
+        <input type="button" value="异步提交表单" id="ajaxbutton">
+    </form>
+</body>
+</html>
